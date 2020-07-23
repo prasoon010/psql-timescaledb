@@ -1,0 +1,4 @@
+---
+- include_tasks: psql_install.yml
+- include_tasks: timedb_install.yml
+- include_tasks: post_install.yml

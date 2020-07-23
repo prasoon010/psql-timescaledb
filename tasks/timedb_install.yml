@@ -1,0 +1,16 @@
+---
+- name: "Adding Timescaledb repository"
+  apt_repository:
+    repo: ppa:timescale/timescaledb-ppa
+    state: present
+  register: timedb_repo
+
+- name: "update apt cache"
+  when: timedb_repo.changed == true
+  apt:
+    update_cache: yes
+
+- name: "Installing timescaledb-postgresql-11"
+  apt:
+    name:
+      - timescaledb-postgresql-11

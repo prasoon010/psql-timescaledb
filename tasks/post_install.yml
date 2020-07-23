@@ -1,0 +1,8 @@
+---
+- name: "Post installation services restarting"
+  service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  with_items:
+    - postgresql
